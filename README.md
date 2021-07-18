@@ -6,7 +6,7 @@ After install, please restore your backup to the new pihole installation.
 
 Do not mess up with the DNS settings in the new pihole installation, otherwise your DoH might not work.
 ___
-This docker completes this tutorial (https://docs.pi-hole.net/guides/dns/cloudflared/) and uses it to install DoH on a new pihole installation (https://hub.docker.com/r/pihole/pihole). No matter the age of this docker, it should work, unless, pihole changes their repo, docker-compose.yml, or if cloudflared changes their config layout, or if they change their cloudflared download link. If for some reason it fails to work, please contact me using the contact info at the end of this README. 
+This docker completes this tutorial (https://docs.pi-hole.net/guides/dns/cloudflared/) and uses it to install DoH on a new pihole installation (https://hub.docker.com/r/pihole/pihole). No matter the age of this docker, it should work, unless, pihole changes their repo, docker-compose.yml, or if cloudflared changes their config layout, or if they change their cloudflared download link. If for some reason it fails to work, please contact me using the contact info at the end of this README.
 
 More Info on What DoH is: https://developers.cloudflare.com/1.1.1.1/dns-over-https
 ___
@@ -56,12 +56,12 @@ RUN apt-get update \
     && apt-get -y install wget \
     && wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb \
     && apt-get install ./cloudflared-stable-linux-amd64.deb \
-    && mkdir -p /etc/cloudflared/ 
-    
+    && mkdir -p /etc/cloudflared/
+
 COPY ./config.yml /etc/cloudflared/config.yml
 
 RUN cloudflared service install --legacy
-    
+
 COPY ./startup /etc/startup
 
 RUN mkdir -p /etc/pihole-doh/logs/pihole \
