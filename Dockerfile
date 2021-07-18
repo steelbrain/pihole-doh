@@ -1,10 +1,8 @@
-FROM pihole/pihole:v5.8.1-arm64-stretch
-
-MAINTAINER ali azam <ali@azam.email>
+FROM --platform linux/arm64 pihole/pihole:v5.8.1-arm64-stretch
 
 EXPOSE 53:53/tcp 53:53/udp 67:67/udp 80:80/tcp
 
-RUN mkdir -p /etc/cloudflared/
+RUN mkdir -p /etc/cloudflared/ \
     && curl "https://github.com/cloudflare/cloudflared/releases/download/2021.7.0/cloudflared-linux-arm64" \
             -o /etc/cloudflared/cloudflared \
     && chmod +x /etc/cloudflared/cloudflared
