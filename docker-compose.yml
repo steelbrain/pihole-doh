@@ -12,6 +12,7 @@ services:
       TZ: 'UTC'
       DNS1: '127.0.0.1#5053'
       DNS2: '' # Empty to override the default
+      QUERY_LOGGING: "false"
     volumes:
       - pihole-config:/etc/pihole/
       - dnsmasq-config:/etc/dnsmasq.d/
