@@ -11,9 +11,9 @@ services:
       - "67:67/udp"
       - "80:80/tcp"
     environment:
-      TZ: 'America/New_York'
+      TZ: 'UTC'
       DNS1: '127.0.0.1#5053'
-      WEBPASSWORD: admin
+      DNS2: '' # Empty to override the default
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
