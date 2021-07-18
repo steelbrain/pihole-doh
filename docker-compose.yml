@@ -3,7 +3,7 @@ version: "3"
 services:
   pihole-doh:
     container_name: pihole-doh
-    image: azamserver/pihole-doh:latest
+    image: local-pihole-doh:latest
     restart: unless-stopped
     ports:
       - "53:53/tcp"
