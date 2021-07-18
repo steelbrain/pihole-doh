@@ -13,5 +13,8 @@ services:
       DNS1: '127.0.0.1#5053'
       DNS2: '' # Empty to override the default
     volumes:
-      - './etc-pihole/:/etc/pihole/'
-      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+      - pihole-config:/etc/pihole/
+      - dnsmasq-config:/etc/dnsmasq.d/
+volumes:
+  pihole-config:
+  dnsmasq-config:
